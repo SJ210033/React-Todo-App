@@ -6,12 +6,14 @@ function TodoAdd({ handleAdd }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		handleAdd(add);
+		setAdd("");
 	};
 	return (
 		<div>
-			<form onSubmit={() => handleSubmit}>
+			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
+					required
 					value={add}
 					onChange={(e) => {
 						setAdd(e.target.value);

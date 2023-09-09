@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-function TodoUpdate({ toChange, handleChange }) {
-	const [updateName, setUpdateName] = useState(toChange);
-
+function TodoUpdate({ handleChange, Todo }) {
+	const [updateName, setUpdateName] = useState(Todo.name);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		handleChange(updateName);
+		handleChange(updateName, Todo.id);
 	};
 
 	return (
 		<div>
-			<form onSubmit={() => handleSubmit}>
+			<form onSubmit={handleSubmit}>
 				<input
 					type="text"
 					value={updateName}
