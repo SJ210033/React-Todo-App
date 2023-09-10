@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../App.css";
 function TodoUpdate({ handleChange, Todo }) {
 	const [updateName, setUpdateName] = useState(Todo.name);
 	const handleSubmit = (e) => {
@@ -8,16 +8,16 @@ function TodoUpdate({ handleChange, Todo }) {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit}>
+			<div className="todoupdatecontent">
 				<input
 					type="text"
 					value={updateName}
 					onChange={(e) => setUpdateName(e.target.value)}
 				/>
 				<button type="submit">UPDATE</button>
-			</form>
-		</div>
+			</div>
+		</form>
 	);
 }
 

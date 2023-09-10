@@ -3,7 +3,7 @@ import TodoContainer from "./Component/TodoContainer";
 
 function App() {
 	return (
-		<div className="container">
+		<div className="App">
 			<TodoContainer />
 		</div>
 	);

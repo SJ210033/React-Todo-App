@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TodoDisplay from "./TodoDisplay";
 import TodoAdd from "./TodoAdd";
 import TodoUpdate from "./TodoUpdate";
-
+import "../App.css";
 function TodoContainer() {
 	const [todo, setTodo] = useState([]);
 	const [updating, setupdating] = useState(0);
@@ -34,23 +34,28 @@ function TodoContainer() {
 		setTodo([...todo, { id: todo.length + 1, name: toadd, completed: false }]);
 	};
 	return (
-		<div>
+		<div className="todocontainer">
+			<h1>Tasks To Do</h1>
 			{updating > 0 ? (
-				<TodoUpdate
-					Todo={todo.find((m) => m.id === updating)}
-					handleChange={handleChange}
-				/>
+				<div className="todoupdate">
+					<TodoUpdate
+						Todo={todo.find((m) => m.id === updating)}
+						handleChange={handleChange}
+					/>
+				</div>
 			) : (
-				""
+				" "
 			)}
 
 			<TodoAdd handleAdd={handleAdd} />
-			<TodoDisplay
-				todo={todo}
-				handleDelete={handleDelete}
-				handleUpdate={handleUpdate}
-				handleComplete={handleComplete}
-			/>
+			<div className="tododisplayall">
+				<TodoDisplay
+					todo={todo}
+					handleDelete={handleDelete}
+					handleUpdate={handleUpdate}
+					handleComplete={handleComplete}
+				/>
+			</div>
 		</div>
 	);
 }
